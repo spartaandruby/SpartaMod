@@ -1,1 +1,41 @@
 
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace YourModNameHere.Items //Put your mod name there
+{
+	public class EyeGod: ModItem
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("EyeGod");
+			Tooltip.SetDefault("The Powers of eyes...");
+		}
+		public override void SetDefaults()
+		{
+			item.damage = 250;
+			item.melee = true;
+			item.width = 40;
+			item.height = 40;
+			item.useTime = 20;
+			item.useAnimation = 20;
+			item.useStyle = 1;
+			item.knockBack = 10;
+			item.value = 1000023;
+			item.rare = 8;
+			item.UseSound = SoundID.Item60;
+			item.autoReuse = true;
+		}
+
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod, "EyeFlesh",90); //sorry for this. this was from my mod. you can change it if you want.
+			recipe.AddIngredient(ItemID.GoldBar , 100);
+			recipe.AddIngredient(ItemID.SpectreBar , 100);
+			recipe.AddTile(TileID.AdamantiteForge);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
+	}
+}
